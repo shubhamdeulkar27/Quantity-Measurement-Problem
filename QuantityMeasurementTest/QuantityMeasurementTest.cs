@@ -79,7 +79,7 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1, feet2);
         }
 
-        /// <summary>
+                /// <summary>
         /// Test Case 1.6 Given 1 Feet and 10 Feet Should Return Not Equal.
         /// </summary>
         [Test]
@@ -90,7 +90,21 @@ namespace QuantityMeasurementTest
             Feet feet2 = new Feet(10.0);
 
             //Asserting Values.
-            Assert.AreNotEqual(feet1, feet2);
+            Assert.AreNotEqual(feet1,feet2);
+        }
+
+        /// <summary>
+        /// Test Case 1.7 Given 0 Inch And 0 Inch Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given0InchAnd0InchShouldReturnEqual()
+        {
+            //Creating Inch Instances.
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(0.0);
+
+            //Asserting Values.
+            Assert.AreEqual(inch1, inch2);
         }
 
     }
