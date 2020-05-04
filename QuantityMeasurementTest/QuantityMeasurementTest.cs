@@ -19,5 +19,19 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(feet1,feet2);
         }
+
+        /// <summary>
+        /// Test Case 1.2 Given Null Values Should Return Equal.
+        /// </summary>
+        [Test]
+        public void GivenNullFeetValuesShouldReturnEqual()
+        {
+            //Creating Feet Null References.
+            Feet feet1 = null;
+            Feet feet2 = null;
+
+            //Asserting Values.
+            Assert.AreEqual(feet1, feet2);
+        }
     }
 }
