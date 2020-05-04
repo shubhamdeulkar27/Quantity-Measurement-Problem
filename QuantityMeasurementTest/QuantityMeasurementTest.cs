@@ -48,5 +48,22 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1, feet2);
         }
 
+        /// <summary>
+        /// Test Case 1.4 Given Feet Type Data Should Return Equal.
+        /// </summary>
+        [Test]
+        public void GivenFeet1andFeet2TypesShouldReturnEqual()
+        {
+            //Creating Instances.
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = new Feet(0.0);
+
+            Type typeFeet1 = feet1.GetType();
+            Type typeFeet2 = feet2.GetType();
+
+            //Asserting Values.
+            Assert.AreEqual(typeFeet1, typeFeet2);
+        }
+
     }
 }
