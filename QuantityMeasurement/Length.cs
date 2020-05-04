@@ -51,7 +51,9 @@ namespace QuantityMeasurement
                    (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) && 
                    this.value == 0 && ((Length)obj).value == 0) || 
                    (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) &&
-                   this.value == 1 && ((Length)obj).value == 12);
+                   this.value == 1 && ((Length)obj).value == 12) ||
+                   (this.unit.Equals(Unit.Inch) && ((Length)obj).unit.Equals(Unit.Feet) &&
+                   this.value == 12 && ((Length)obj).value == 1);
         }
 
         /// <summary>
