@@ -13,8 +13,8 @@ namespace QuantityMeasurementTest
         public void GivenZeroFeetAndZeroFeetShouldReturnEqual()
         {
             //Creating Feet Instance.
-            Feet feet1 =  new Feet(0.0);
-            Feet feet2 = new Feet(0.0);
+            Length feet1 =  new Length(Length.Unit.Feet,0.0);
+            Length feet2 = new Length(Length.Unit.Feet,0.0);
             
             //Asserting Values.
             Assert.AreEqual(feet1,feet2);
@@ -27,8 +27,8 @@ namespace QuantityMeasurementTest
         public void GivenNullFeetValuesShouldReturnEqual()
         {
             //Creating Feet Null References.
-            Feet feet1 = null;
-            Feet feet2 = null;
+            Length feet1 = null;
+            Length feet2 = null;
 
             //Asserting Values.
             Assert.AreEqual(feet1, feet2);
@@ -41,8 +41,8 @@ namespace QuantityMeasurementTest
         public void GivenSameReferencesShouldReturnEqual()
         {
             //Creeating Feet Instance.
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = feet1;
+            Length feet1 = new Length(Length.Unit.Feet,0.0);
+            Length feet2 = feet1;
 
             //Asserting Values.
             Assert.AreEqual(feet1, feet2);
@@ -55,8 +55,8 @@ namespace QuantityMeasurementTest
         public void GivenFeet1andFeet2TypesShouldReturnEqual()
         {
             //Creating Instances.
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(0.0);
+            Length feet1 = new Length(Length.Unit.Feet,0.0);
+            Length feet2 = new Length(Length.Unit.Feet,0.0);
 
             Type typeFeet1 = feet1.GetType();
             Type typeFeet2 = feet2.GetType();
@@ -72,8 +72,8 @@ namespace QuantityMeasurementTest
         public void Given1FeetAnd1FeetShouldReturnEqual()
         {
             //Creating Feet Instances.
-            Feet feet1 = new Feet(1.0);
-            Feet feet2 = new Feet(1.0);
+            Length feet1 = new Length(Length.Unit.Feet,1.0);
+            Length feet2 = new Length(Length.Unit.Feet,1.0);
 
             //Asserting Values.
             Assert.AreEqual(feet1, feet2);
@@ -86,8 +86,8 @@ namespace QuantityMeasurementTest
         public void Given1FeetAnd10FeetShouldReturnNotEqual()
         {
             //Creating Feet Instances.
-            Feet feet1 = new Feet(1.0);
-            Feet feet2 = new Feet(10.0);
+            Length feet1 = new Length(Length.Unit.Feet,1.0);
+            Length feet2 = new Length(Length.Unit.Feet,10.0);
 
             //Asserting Values.
             Assert.AreNotEqual(feet1,feet2);
@@ -100,8 +100,8 @@ namespace QuantityMeasurementTest
         public void Given0InchAnd0InchShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.Inch,0.0);
+            Length inch2 = new Length(Length.Unit.Inch,0.0);
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -114,8 +114,8 @@ namespace QuantityMeasurementTest
         public void GivenNullInchValuesShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = null;
-            Inch inch2 = null;
+            Length inch1 = null;
+            Length inch2 = null;
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -128,8 +128,8 @@ namespace QuantityMeasurementTest
         public void GivenSameInchReferencesShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = inch1;
+            Length inch1 = new Length(Length.Unit.Inch,0.0);
+            Length inch2 = inch1;
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -142,8 +142,8 @@ namespace QuantityMeasurementTest
         public void GivenInchTypeReferenceShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.Inch,0.0);
+            Length inch2 = new Length(Length.Unit.Inch,0.0);
 
             //Getting Type Of Reference.
             Type typeInch1 = inch1.GetType();
@@ -160,8 +160,8 @@ namespace QuantityMeasurementTest
         public void Given1InchAnd1InchShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = new Inch(1);
-            Inch inch2 = new Inch(1);
+            Length inch1 = new Length(Length.Unit.Inch,1);
+            Length inch2 = new Length(Length.Unit.Inch,1);
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -174,12 +174,11 @@ namespace QuantityMeasurementTest
         public void Given1InchAnd10InchShouldReturnNotEqual()
         {
             //Creating Inch Instances.
-            Inch inch1 = new Inch(1);
-            Inch inch2 = new Inch(10);
+            Length inch1 = new Length(Length.Unit.Inch,1);
+            Length inch2 = new Length(Length.Unit.Inch,10);
 
             //Asserting Values.
             Assert.AreNotEqual(inch1, inch2);
         }
-
     }
 }
