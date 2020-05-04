@@ -121,5 +121,19 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch1, inch2);
         }
 
+        /// <summary>
+        /// Test Case 1.9 Given Two References Of Same Type Should Return Equal.
+        /// </summary>
+        [Test]
+        public void GivenSameInchReferencesShouldReturnEqual()
+        {
+            //Creating Inch Instances.
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = inch1;
+
+            //Asserting Values.
+            Assert.AreEqual(inch1, inch2);
+        }
+
     }
 }
