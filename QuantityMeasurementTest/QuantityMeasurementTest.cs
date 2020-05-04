@@ -153,5 +153,19 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(typeInch1, typeInch2);
         }
 
+        /// <summary>
+        /// Test Case 1.11 Given 1 Inch and 1 Inch Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1InchAnd1InchShouldReturnEqual()
+        {
+            //Creating Inch Instances.
+            Inch inch1 = new Inch(1);
+            Inch inch2 = new Inch(1);
+
+            //Asserting Values.
+            Assert.AreEqual(inch1, inch2);
+        }
+
     }
 }
