@@ -36,15 +36,21 @@ namespace QuantityMeasurement
         /// <returns></returns>
         public override bool Equals(object obj)
         {
+            //If Object is Null It Will Return False.
             if (obj == null)
             {
                 return false;
             }
+
+            //If Object is Not A Reference Of Length Class The It Will Return False.
             if (!(obj is Length))
             {
                 return false;
             }
-            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value);
+
+            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value) || 
+                (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) && 
+                this.value == 0 && ((Length)obj).value == 0);
         }
 
         /// <summary>
