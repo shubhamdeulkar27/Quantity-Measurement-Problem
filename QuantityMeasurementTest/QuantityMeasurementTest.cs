@@ -107,5 +107,19 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch1, inch2);
         }
 
+        /// <summary>
+        /// Test Case 1.8 Given Null Inch Values Should Return Equal.
+        /// </summary>
+        [Test]
+        public void GivenNullInchValuesShouldReturnEqual()
+        {
+            //Creating Inch Instances.
+            Inch inch1 = null;
+            Inch inch2 = null;
+
+            //Asserting Values.
+            Assert.AreEqual(inch1, inch2);
+        }
+
     }
 }
