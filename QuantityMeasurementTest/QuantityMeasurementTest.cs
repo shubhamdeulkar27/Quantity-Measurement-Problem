@@ -66,7 +66,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Test CAse 1.5 Given 1 Feet and 1 Feet Should Return Equal.
+        /// Test Case 1.5 Given 1 Feet and 1 Feet Should Return Equal.
         /// </summary>
         [Test]
         public void Given1FeetAnd1FeetShouldReturnEqual()
