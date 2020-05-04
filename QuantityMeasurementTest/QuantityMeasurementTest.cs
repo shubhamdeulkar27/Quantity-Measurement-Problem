@@ -33,5 +33,20 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(feet1, feet2);
         }
+
+        /// <summary>
+        /// Test Case 1.3 Given References Having Same Object Should Return Equal.
+        /// </summary>
+        [Test]
+        public void GivenSameReferencesShouldReturnEqual()
+        {
+            //Creeating Feet Instance.
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = feet1;
+
+            //Asserting Values.
+            Assert.AreEqual(feet1, feet2);
+        }
+
     }
 }
