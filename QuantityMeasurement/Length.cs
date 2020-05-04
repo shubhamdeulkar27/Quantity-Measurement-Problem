@@ -47,10 +47,11 @@ namespace QuantityMeasurement
             {
                 return false;
             }
-
             return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value) || 
-                (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) && 
-                this.value == 0 && ((Length)obj).value == 0);
+                   (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) && 
+                   this.value == 0 && ((Length)obj).value == 0) || 
+                   (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) &&
+                   this.value == 1 && ((Length)obj).value == 12);
         }
 
         /// <summary>
