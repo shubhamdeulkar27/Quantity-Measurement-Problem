@@ -79,5 +79,19 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1, feet2);
         }
 
+        /// <summary>
+        /// Test Case 1.6 Given 1 Feet and 10 Feet Should Return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd10FeetShouldReturnNotEqual()
+        {
+            //Creating Feet Instances.
+            Feet feet1 = new Feet(1.0);
+            Feet feet2 = new Feet(10.0);
+
+            //Asserting Values.
+            Assert.AreNotEqual(feet1, feet2);
+        }
+
     }
 }
