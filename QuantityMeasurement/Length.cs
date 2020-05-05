@@ -12,7 +12,7 @@ namespace QuantityMeasurement
         /// <summary>
         /// Enum For Length Unit.
         /// </summary>
-        public enum Unit { Feet, Inch }
+        public enum Unit { Feet, Inch, Yard }
 
         //Variables.
         Unit unit;
@@ -38,8 +38,7 @@ namespace QuantityMeasurement
         /// <returns></returns>
         public bool IsEqual(Length object1, Length object2)
         {
-            //Checking Feet and Inch Values Are Equal Or Not in If Block
-            //And Vice Versa In Else If Block.
+            //Checking Feet and Inch Values Are Equal Or Not.
             if (object1.unit.Equals(Unit.Feet) && object2.unit.Equals(Unit.Inch))
             {
                 double feetToCm = object1.value * 30.48;
@@ -49,11 +48,24 @@ namespace QuantityMeasurement
                     return true;
                 }
             }
+
+            //Checking Inch and Feet Values Are Equal Or Not
             else if (object1.unit.Equals(Unit.Inch) && object2.unit.Equals(Unit.Feet))
             {
                 double inchToCm = object1.value * 2.54;
                 double feetToCm = object2.value * 30.48;
                 if (inchToCm == feetToCm)
+                {
+                    return true;
+                }
+            }
+
+            //Checking Feet and Yard Values Are Equal Or Not
+            else if (object1.unit.Equals(Unit.Feet) && object2.unit.Equals(Unit.Yard))
+            {
+                double feetToCm = object1.value * 30.48;
+                double yardToCm = object2.value * 91.44;
+                if (feetToCm == yardToCm)
                 {
                     return true;
                 }
