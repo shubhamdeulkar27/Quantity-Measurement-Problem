@@ -13,11 +13,11 @@ namespace QuantityMeasurementTest
         public void GivenZeroFeetAndZeroFeetShouldReturnEqual()
         {
             //Creating Feet Instance.
-            Length feet1 =  new Length(Length.Unit.Feet,0.0);
-            Length feet2 = new Length(Length.Unit.Feet,0.0);
-            
+            Length feet1 = new Length(Length.Unit.Feet, 0.0);
+            Length feet2 = new Length(Length.Unit.Feet, 0.0);
+
             //Asserting Values.
-            Assert.AreEqual(feet1,feet2);
+            Assert.AreEqual(feet1, feet2);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace QuantityMeasurementTest
         public void GivenSameReferencesShouldReturnEqual()
         {
             //Creeating Feet Instance.
-            Length feet1 = new Length(Length.Unit.Feet,0.0);
+            Length feet1 = new Length(Length.Unit.Feet, 0.0);
             Length feet2 = feet1;
 
             //Asserting Values.
@@ -55,8 +55,8 @@ namespace QuantityMeasurementTest
         public void GivenFeet1andFeet2TypesShouldReturnEqual()
         {
             //Creating Instances.
-            Length feet1 = new Length(Length.Unit.Feet,0.0);
-            Length feet2 = new Length(Length.Unit.Feet,0.0);
+            Length feet1 = new Length(Length.Unit.Feet, 0.0);
+            Length feet2 = new Length(Length.Unit.Feet, 0.0);
 
             Type typeFeet1 = feet1.GetType();
             Type typeFeet2 = feet2.GetType();
@@ -72,25 +72,25 @@ namespace QuantityMeasurementTest
         public void Given1FeetAnd1FeetShouldReturnEqual()
         {
             //Creating Feet Instances.
-            Length feet1 = new Length(Length.Unit.Feet,1.0);
-            Length feet2 = new Length(Length.Unit.Feet,1.0);
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            Length feet2 = new Length(Length.Unit.Feet, 1.0);
 
             //Asserting Values.
             Assert.AreEqual(feet1, feet2);
         }
 
-                /// <summary>
+        /// <summary>
         /// Test Case 1.6 Given 1 Feet and 10 Feet Should Return Not Equal.
         /// </summary>
         [Test]
         public void Given1FeetAnd10FeetShouldReturnNotEqual()
         {
             //Creating Feet Instances.
-            Length feet1 = new Length(Length.Unit.Feet,1.0);
-            Length feet2 = new Length(Length.Unit.Feet,10.0);
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            Length feet2 = new Length(Length.Unit.Feet, 10.0);
 
             //Asserting Values.
-            Assert.AreNotEqual(feet1,feet2);
+            Assert.AreNotEqual(feet1, feet2);
         }
 
         /// <summary>
@@ -100,8 +100,8 @@ namespace QuantityMeasurementTest
         public void Given0InchAnd0InchShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Length inch1 = new Length(Length.Unit.Inch,0.0);
-            Length inch2 = new Length(Length.Unit.Inch,0.0);
+            Length inch1 = new Length(Length.Unit.Inch, 0.0);
+            Length inch2 = new Length(Length.Unit.Inch, 0.0);
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -128,7 +128,7 @@ namespace QuantityMeasurementTest
         public void GivenSameInchReferencesShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Length inch1 = new Length(Length.Unit.Inch,0.0);
+            Length inch1 = new Length(Length.Unit.Inch, 0.0);
             Length inch2 = inch1;
 
             //Asserting Values.
@@ -142,8 +142,8 @@ namespace QuantityMeasurementTest
         public void GivenInchTypeReferenceShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Length inch1 = new Length(Length.Unit.Inch,0.0);
-            Length inch2 = new Length(Length.Unit.Inch,0.0);
+            Length inch1 = new Length(Length.Unit.Inch, 0.0);
+            Length inch2 = new Length(Length.Unit.Inch, 0.0);
 
             //Getting Type Of Reference.
             Type typeInch1 = inch1.GetType();
@@ -160,8 +160,8 @@ namespace QuantityMeasurementTest
         public void Given1InchAnd1InchShouldReturnEqual()
         {
             //Creating Inch Instances.
-            Length inch1 = new Length(Length.Unit.Inch,1);
-            Length inch2 = new Length(Length.Unit.Inch,1);
+            Length inch1 = new Length(Length.Unit.Inch, 1);
+            Length inch2 = new Length(Length.Unit.Inch, 1);
 
             //Asserting Values.
             Assert.AreEqual(inch1, inch2);
@@ -174,8 +174,8 @@ namespace QuantityMeasurementTest
         public void Given1InchAnd10InchShouldReturnNotEqual()
         {
             //Creating Inch Instances.
-            Length inch1 = new Length(Length.Unit.Inch,1);
-            Length inch2 = new Length(Length.Unit.Inch,10);
+            Length inch1 = new Length(Length.Unit.Inch, 1);
+            Length inch2 = new Length(Length.Unit.Inch, 10);
 
             //Asserting Values.
             Assert.AreNotEqual(inch1, inch2);
@@ -192,7 +192,7 @@ namespace QuantityMeasurementTest
             Length inch = new Length(Length.Unit.Inch, 0);
 
             //Asserting Values.
-            Assert.AreEqual(feet,inch);
+            Assert.AreEqual(feet, inch);
         }
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace QuantityMeasurementTest
             Length inch = new Length(Length.Unit.Inch, 12);
 
             //Asserting Values.
-            Assert.AreEqual(feet,inch);
+            Assert.AreEqual(feet, inch);
         }
 
         /// <summary>
@@ -250,7 +250,21 @@ namespace QuantityMeasurementTest
             Length yard = new Length(Length.Unit.Yard, 1);
 
             //Asserting Values.
-            Assert.AreEqual(feet,yard);
+            Assert.AreEqual(feet, yard);
+        }
+
+        /// <summary>
+        /// Test Case 1.18 Given 1 Feet And 1 Yard Should Return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1YardShouldReturnNotEqual()
+        {
+            //Creating Length Instances For Feet and Inch
+            Length feet = new Length(Length.Unit.Feet, 1);
+            Length yard = new Length(Length.Unit.Yard, 1);
+
+            //Asserting Values.
+            Assert.AreNotEqual(feet, yard);
         }
     }
 }
