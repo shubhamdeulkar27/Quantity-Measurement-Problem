@@ -4,6 +4,9 @@ using System;
 
 namespace QuantityMeasurementTest
 {
+    /// <summary>
+    /// Class For Test Cases.
+    /// </summary>
     public class Tests
     {
         /// <summary>
@@ -293,6 +296,20 @@ namespace QuantityMeasurementTest
 
             //Asserting Values.
             Assert.AreEqual(inch,yard);
+        }
+
+        /// <summary>
+        /// Test Case 2.21 Given 1 Yard And 3 Feet Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1YardAnd3FeetShouldReturnEqual()
+        {
+            //Creating Length Instances For Feet and Inch
+            Length yard = new Length(Length.Unit.Yard, 1);
+            Length feet = new Length(Length.Unit.Feet, 3);
+
+            //Asserting Values.
+            Assert.AreEqual(yard, feet);
         }
     }
 }
