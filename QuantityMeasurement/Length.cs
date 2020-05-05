@@ -81,6 +81,18 @@ namespace QuantityMeasurement
                     return true;
                 }
             }
+           
+            //Checking Inch And Yard Values Are Equal or Not.
+            else if (object1.unit.Equals(Unit.Inch) && object2.unit.Equals(Unit.Yard))
+            {
+                double inchToCm = object1.value * 2.54;
+                double yardToCm = object2.value * 91.44;
+                if (yardToCm == inchToCm)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 
