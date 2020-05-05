@@ -266,5 +266,19 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreNotEqual(feet, yard);
         }
+
+        /// <summary>
+        /// Test Case 2.19 Given 1 Yard And 36 Inch Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1YardAnd36InchShouldReturEqual()
+        {
+            //Creating Length Instances For Feet and Inch
+            Length yard = new Length(Length.Unit.Yard, 1);
+            Length inch = new Length(Length.Unit.Inch, 36);
+            
+            //Asserting Values.
+            Assert.AreEqual(yard, inch);
+        }
     }
 }
