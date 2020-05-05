@@ -30,6 +30,38 @@ namespace QuantityMeasurement
         }
 
         /// <summary>
+        /// IsEqual Function to Convert Input Units Into Centi-Meter
+        /// And Checking Their Equality.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
+        public bool IsEqual(Length object1, Length object2)
+        {
+            //Checking Feet and Inch Values Are Equal Or Not in If Block
+            //And Vice Versa In Else If Block.
+            if (object1.unit.Equals(Unit.Feet) && object2.unit.Equals(Unit.Inch))
+            {
+                double feetToCm = object1.value * 30.48;
+                double inchToCm = object2.value * 2.54;
+                if (feetToCm == inchToCm)
+                {
+                    return true;
+                }
+            }
+            else if (object1.unit.Equals(Unit.Inch) && object2.unit.Equals(Unit.Feet))
+            {
+                double inchToCm = object1.value * 2.54;
+                double feetToCm = object2.value * 30.48;
+                if (inchToCm == feetToCm)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Overriding Equals Function.
         /// </summary>
         /// <param name="obj"></param>
@@ -47,13 +79,7 @@ namespace QuantityMeasurement
             {
                 return false;
             }
-            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value) || 
-                   (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) && 
-                   this.value == 0 && ((Length)obj).value == 0) || 
-                   (this.unit.Equals(Unit.Feet) && ((Length)obj).unit.Equals(Unit.Inch) &&
-                   this.value == 1 && ((Length)obj).value == 12) ||
-                   (this.unit.Equals(Unit.Inch) && ((Length)obj).unit.Equals(Unit.Feet) &&
-                   this.value == 12 && ((Length)obj).value == 1);
+            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value) || IsEqual(this,(Length)obj) ;
         }
 
         /// <summary>
