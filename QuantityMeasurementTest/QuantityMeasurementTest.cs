@@ -240,7 +240,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Test Case 1.17 Given 3 Feet And 1 Yard Should Return Equal.
+        /// Test Case 2.17 Given 3 Feet And 1 Yard Should Return Equal.
         /// </summary>
         [Test]
         public void Given3FeetAnd1YardShouldReturnEqual()
@@ -254,7 +254,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Test Case 1.18 Given 1 Feet And 1 Yard Should Return Not Equal.
+        /// Test Case 2.18 Given 1 Feet And 1 Yard Should Return Not Equal.
         /// </summary>
         [Test]
         public void Given1FeetAnd1YardShouldReturnNotEqual()
