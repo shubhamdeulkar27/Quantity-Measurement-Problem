@@ -31,5 +31,27 @@ namespace QuantityMeasurement
         /// <returns></returns>
         public abstract double ConvertToLitre(Volume objectName);
 
+        /// <summary>
+        /// Abstract Function For Adding Volumes And Results into Litre.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
+        public abstract double AddVolumes(Volume object1, Volume object2);
+
+        /// <summary>
+        /// Abstract Function For Convert To Kilograms.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public abstract double ConvertToKiloGram(Weight objectName);
+
+        /// <summary>
+        /// Abstract Function For Adding Weights And Results into Kiograms.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
+        public abstract double AddWeights(Weight object1, Weight object2);
     }
 }

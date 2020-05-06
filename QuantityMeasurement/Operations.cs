@@ -39,6 +39,33 @@ namespace QuantityMeasurement
         {
             return 0;
         }
+
+        /// <summary>
+        /// Function For Implementation.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
+        public double AddVolumes(Volume object1, Volume object2)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Function For Implementation.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public double ConvertToKiloGram(Weight objectName)
+        {
+            return 0;
+        }
+
+
+        public double AddWeights(Weight object1, Weight object2)
+        {
+            return 0;
+        }
     }
 
     /// <summary>
@@ -85,6 +112,12 @@ namespace QuantityMeasurement
             return value;
         }
 
+        /// <summary>
+        /// Function For Adding Lenghts And Results into Inch.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
         public static double AddLengths(Length object1, Length object2)
         {
             try
@@ -165,6 +198,26 @@ namespace QuantityMeasurement
                     value = objectName.value * GRAM_TO_KILOGRAM_CONVERSION;
                 }
                 return value;
+            }
+            catch (QuantityMeasurementException)
+            {
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+            }
+        }
+
+        /// <summary>
+        /// Function For Adding Weights And Results into Kilograms.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
+        public static double AddWeights(Weight object1, Weight object2)
+        {
+            try
+            {
+                double value1 = ConvertToKiloGram(object1);
+                double value2 = ConvertToKiloGram(object2);
+                return value1 + value2;
             }
             catch (QuantityMeasurementException)
             {
