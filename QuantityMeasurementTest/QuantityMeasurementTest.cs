@@ -364,12 +364,28 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given1FeetAnd1FeetShouldReturn24Inch()
         {
-            //Creating Feet Instance.
+            //Creating Feet Instance and Performing Operation.
             Length feet = new Length(Length.Unit.Feet, 1);
             double result = Operations.AddLengths(feet, feet);
             double expected = 24;
 
             //Assertig Values.
+            Assert.AreEqual(expected, result);
+        }
+
+        /// <summary>
+        /// Test Case 4.26 Given 2 Inch Adn 2.5 Centimeter Should Return 3 Inch. 
+        /// </summary>
+        [Test]
+        public void Given2InchAnd2point5CentimeterShouldReturn3Inch()
+        {
+            //Creating Length Instances and Performing Operation.
+            Length inch = new Length(Length.Unit.Inch, 2);
+            Length centimeter = new Length(Length.Unit.Centimeter,2.5);
+            double result = Operations.AddLengths(inch, centimeter);
+            double expected = 3;
+
+            //Asserting Values.
             Assert.AreEqual(expected, result);
         }
     }
