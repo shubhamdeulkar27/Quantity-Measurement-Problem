@@ -7,7 +7,7 @@ namespace QuantityMeasurement
     /// <summary>
     /// Class For Impelementation.
     /// </summary>
-    public class ImplemetorConverUnit:IConvertUnit
+    public class ImplemetorOperations:IOperations
     {
         /// <summary>
         /// Function For Implementation.
@@ -18,12 +18,17 @@ namespace QuantityMeasurement
         {
             return 0;
         }
+
+        public double AddLengths(Length object1, Length object2)
+        {
+            return 0;
+        }
     }
 
     /// <summary>
     /// Class To Convert The Given Unit Into Specified One.
     /// </summary>
-    public class ConvertUnit:ImplemetorConverUnit
+    public class Operations:ImplemetorOperations
     {
         /// <summary>
         /// Function To Covert Given Objects Unit Value Into Inch Unit.
@@ -54,6 +59,13 @@ namespace QuantityMeasurement
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid");
             }
             return value;
+        }
+
+        public static double AddLengths(Length object1, Length object2)
+        {
+            double value1 = ConvertToInch(object1);
+            double value2 = ConvertToInch(object2);
+            return value1 + value2;
         }
     }
 }

@@ -42,8 +42,8 @@ namespace QuantityMeasurement
         {
             try
             {
-                double object1ValueInCentimeter = ConvertUnit.ConvertToInch(object1);
-                double object2ValueInCentimeter = ConvertUnit.ConvertToInch(object2);
+                double object1ValueInCentimeter = Operations.ConvertToInch(object1);
+                double object2ValueInCentimeter = Operations.ConvertToInch(object2);
                 if (object1ValueInCentimeter == object2ValueInCentimeter)
                 {
                     return true;

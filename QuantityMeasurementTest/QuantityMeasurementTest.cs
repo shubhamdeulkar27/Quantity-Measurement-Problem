@@ -325,5 +325,21 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(inch,centimeter);
         }
+
+        /// <summary>
+        /// Test Case 4.23 Given 2 Inch And 2 Inch Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Gievn2InchAnd2InchShouldReturn4Inch()
+        {
+            //Creating Inch Instances.
+            Length inch1 = new Length(Length.Unit.Inch, 2);
+            Length inch2 = new Length(Length.Unit.Inch, 2);
+            double result = Operations.AddLengths(inch1, inch2);
+            double expected = 4;
+
+            //Assertig Values.
+            Assert.AreEqual(expected,result);
+        }
     }
 }
