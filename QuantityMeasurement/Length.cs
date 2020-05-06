@@ -7,7 +7,7 @@ namespace QuantityMeasurement
     /// <summary>
     /// Length Class For Setting Length Value In Specified Unit.
     /// </summary>
-    public class Length
+    public class Length : ILength
     {
         /// <summary>
         /// Enum For Length Unit.
@@ -15,8 +15,8 @@ namespace QuantityMeasurement
         public enum Unit { Feet, Inch, Yard }
 
         //Variables.
-        Unit unit;
-        private double value;
+        public Unit unit;
+        public double value;
 
         /// <summary>
         /// Parameter Constructor To Set Unit And Value.
@@ -30,7 +30,7 @@ namespace QuantityMeasurement
         }
 
         /// <summary>
-        /// IsEqual Function to Convert Input Units Into Centi-Meter
+        /// IsEqual Function to Convert Input Units Into Lowest-Unit
         /// And Checking Their Equality.
         /// </summary>
         /// <param name="object1"></param>
@@ -38,68 +38,18 @@ namespace QuantityMeasurement
         /// <returns></returns>
         public bool IsEqual(Length object1, Length object2)
         {
-            //Checking Feet and Inch Values Are Equal Or Not.
-            if (object1.unit.Equals(Unit.Feet) && object2.unit.Equals(Unit.Inch))
+            try
             {
-                double feetToCm = object1.value * 30.48;
-                double inchToCm = object2.value * 2.54;
-                if (feetToCm == inchToCm)
+                double object1ValueInCentimeter = ConvertUnit.ConvertToInch(object1);
+                double object2ValueInCentimeter = ConvertUnit.ConvertToInch(object2);
+                if (object1ValueInCentimeter == object2ValueInCentimeter)
                 {
                     return true;
                 }
             }
-
-            //Checking Inch and Feet Values Are Equal Or Not
-            else if (object1.unit.Equals(Unit.Inch) && object2.unit.Equals(Unit.Feet))
+            catch (Exception)
             {
-                double inchToCm = object1.value * 2.54;
-                double feetToCm = object2.value * 30.48;
-                if (inchToCm == feetToCm)
-                {
-                    return true;
-                }
-            }
-
-            //Checking Feet and Yard Values Are Equal Or Not
-            else if (object1.unit.Equals(Unit.Feet) && object2.unit.Equals(Unit.Yard))
-            {
-                double feetToCm = object1.value * 30.48;
-                double yardToCm = object2.value * 91.44;
-                if (feetToCm == yardToCm)
-                {
-                    return true;
-                }
-            }
-
-            //Checking Yard And Inch Values Are Equal or Not.
-            else if (object1.unit.Equals(Unit.Yard) && object2.unit.Equals(Unit.Inch))
-            {
-                double yardToCm = object1.value * 91.44;
-                double inchToCm = object2.value * 2.54;
-                if (yardToCm == inchToCm)
-                {
-                    return true;
-                }
-            }
-
-            //Checking Inch And Yard Values Are Equal or Not.
-            else if (object1.unit.Equals(Unit.Inch) && object2.unit.Equals(Unit.Yard))
-            {
-                double inchToCm = object1.value * 2.54;
-                double yardToCm = object2.value * 91.44;
-                if (yardToCm == inchToCm)
-                {
-                    return true;
-                }
-            }
-            else if (object1.unit.Equals(Unit.Yard) && object2.unit.Equals(Unit.Feet))
-            {
-                double yardToCm = object1.value * 91.44;
-                double feetToCm = object2.value * 30.48;
-                if(yardToCm==feetToCm)
-                {
-                    return true;
-                }
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
             }
             return false;
         }
