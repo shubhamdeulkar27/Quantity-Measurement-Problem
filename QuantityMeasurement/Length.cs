@@ -8,14 +8,7 @@ namespace QuantityMeasurement
     /// Length Class For Setting Length Value In Specified Unit.
     /// </summary>
     public class Length : ILength
-    {
-        /// <summary>
-        /// Enum For Length Unit.
-        /// </summary>
-        public enum Unit { Feet, Inch, Yard,
-            Centimeter
-        }
-
+    {   
         //Variables.
         public Unit unit;
         public double value;
