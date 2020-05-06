@@ -10,6 +10,7 @@
         Litre,
         Mililitre,
         KiloGram,
-        Grams
+        Grams,
+        Tonne
     }
 }

@@ -423,5 +423,19 @@ namespace QuantityMeasurementTest
             //Assertin Values.
             Assert.AreEqual(kiloGrams,grams);
         }
+
+        /// <summary>
+        /// Test Case 7.32 Given 1 Tonne And 1000  kilograms Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1TonneAnd1000KilogramsShouldReturnEqual()
+        {
+            //Creating Weight Instances For Tonne And Kilogram.
+            Weight tonne = new Weight(Unit.Tonne, 1);
+            Weight kilograms = new Weight(Unit.KiloGram, 1000);
+
+            //Asserting Value.
+            Assert.AreEqual(tonne,kilograms);
+        }
     }
 }

@@ -160,6 +160,10 @@ namespace QuantityMeasurement
                 {
                     value = objectName.value / GRAM_TO_KILOGRAM_CONVERSION;
                 }
+                if (objectName.unit.Equals(Unit.Tonne))
+                {
+                    value = objectName.value * GRAM_TO_KILOGRAM_CONVERSION;
+                }
                 return value;
             }
             catch (QuantityMeasurementException)
