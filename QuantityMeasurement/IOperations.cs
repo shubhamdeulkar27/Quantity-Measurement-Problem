@@ -23,5 +23,13 @@ namespace QuantityMeasurement
         /// <param name="object2"></param>
         /// <returns></returns>
         public abstract double AddLengths(Length object1, Length object2);
+
+        /// <summary>
+        /// Abstract Function For Convert To Litre.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public abstract double ConvertToLitre(Volume objectName);
+
     }
 }

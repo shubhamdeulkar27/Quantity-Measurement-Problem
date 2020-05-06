@@ -19,7 +19,23 @@ namespace QuantityMeasurement
             return 0;
         }
 
+        /// <summary>
+        /// Function For Implemenattion.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
         public double AddLengths(Length object1, Length object2)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Function For Implementation.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public double ConvertToLitre(Volume objectName)
         {
             return 0;
         }
@@ -35,6 +51,7 @@ namespace QuantityMeasurement
         private static readonly double YARD_TO_INCH_CONVERSION = 36;
         private static readonly double CENTIMETER_TO_INCH_CONVERSION = 2.54;
         private static readonly double GALLON_TO_LITRE_CONVERSION = 3.78;
+        private static readonly double MILILITRE_TO_LITRE_CONVERSION = 1000;
 
         /// <summary>
         /// Function To Covert Given Objects Unit Value Into Inch Unit.
@@ -89,9 +106,20 @@ namespace QuantityMeasurement
         public static double ConvertToLitre(Volume objectName)
         {
             double value = objectName.value;
-            if (objectName.unit.Equals(Unit.Gallon))
+            try
             {
-                value = objectName.value * GALLON_TO_LITRE_CONVERSION;
+                if (objectName.unit.Equals(Unit.Gallon))
+                {
+                    value = objectName.value * GALLON_TO_LITRE_CONVERSION;
+                }
+                if (objectName.unit.Equals(Unit.Mililitre))
+                {
+                    value = objectName.value / MILILITRE_TO_LITRE_CONVERSION;
+                }
+            }
+            catch (QuantityMeasurementException)
+            {
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
             }
             return value;
         }
