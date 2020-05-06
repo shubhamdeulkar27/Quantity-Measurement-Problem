@@ -248,7 +248,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given3FeetAnd1YardShouldReturnEqual()
         {
-            //Creating Length Instances For Feet and Inch
+            //Creating Length Instances For Feet and Yard
             Length feet = new Length(Length.Unit.Feet, 3);
             Length yard = new Length(Length.Unit.Yard, 1);
 
@@ -262,7 +262,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given1FeetAnd1YardShouldReturnNotEqual()
         {
-            //Creating Length Instances For Feet and Inch
+            //Creating Length Instances For Feet and Yard
             Length feet = new Length(Length.Unit.Feet, 1);
             Length yard = new Length(Length.Unit.Yard, 1);
 
@@ -276,7 +276,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given1YardAnd36InchShouldReturEqual()
         {
-            //Creating Length Instances For Feet and Inch
+            //Creating Length Instances For Yard and Inch
             Length yard = new Length(Length.Unit.Yard, 1);
             Length inch = new Length(Length.Unit.Inch, 36);
             
@@ -290,7 +290,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given36InchAnD1YardShouldReturnEqual()
         {
-            //Creating Length Instances For Feet and Inch
+            //Creating Length Instances For Yard and Inch
             Length yard = new Length(Length.Unit.Yard, 1);
             Length inch = new Length(Length.Unit.Inch, 36);
 
@@ -304,12 +304,26 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given1YardAnd3FeetShouldReturnEqual()
         {
-            //Creating Length Instances For Feet and Inch
+            //Creating Length Instances For Yard And Feet
             Length yard = new Length(Length.Unit.Yard, 1);
             Length feet = new Length(Length.Unit.Feet, 3);
 
             //Asserting Values.
             Assert.AreEqual(yard, feet);
+        }
+
+        /// <summary>
+        /// Test Case 3.22 Given 2 Inch And 5 Centimeter Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given2InchAnd5CentimeterShouldReturnEqual()
+        {
+            //Creating Length Instances For Inch And Centimeter.
+            Length inch = new Length(Length.Unit.Inch, 2);
+            Length centimeter = new Length(Length.Unit.Centimeter, 5);
+
+            //Asserting Values.
+            Assert.AreEqual(inch,centimeter);
         }
     }
 }

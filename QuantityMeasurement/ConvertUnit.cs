@@ -35,7 +35,7 @@ namespace QuantityMeasurement
             double value=objectName.value;
             try
             {
-                //If Else Block for checking the specified Unit and converting into Centimeter.
+                //If Else Block for checking the specified Unit and converting into Inch.
                 if (objectName.unit.Equals(Length.Unit.Feet))
                 {
                     value = objectName.value * 12;
@@ -44,6 +44,10 @@ namespace QuantityMeasurement
                 {
                     value = objectName.value * 36;
                 }
+                else if (objectName.unit.Equals(Length.Unit.Centimeter))
+                {
+                    value = Math.Round(objectName.value / 2.54);
+                }    
             }
             catch (Exception)
             {
