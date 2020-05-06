@@ -356,7 +356,21 @@ namespace QuantityMeasurementTest
 
             //Assertig Values.
             Assert.AreEqual(expected, result);
+        }
 
+        /// <summary>
+        /// Test Case 4.25 Given 1 Feet And 1 Feet Should Return 24 Inches.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1FeetShouldReturn24Inch()
+        {
+            //Creating Feet Instance.
+            Length feet = new Length(Length.Unit.Feet, 1);
+            double result = Operations.AddLengths(feet, feet);
+            double expected = 24;
+
+            //Assertig Values.
+            Assert.AreEqual(expected, result);
         }
     }
 }
