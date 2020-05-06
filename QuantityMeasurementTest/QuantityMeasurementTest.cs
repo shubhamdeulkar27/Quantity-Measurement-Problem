@@ -392,5 +392,22 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(expected, result);
         }
+
+        /// <summary>
+        /// Test Case 6.30 Given 1 Litre And 1000 Mililitre Should Return 2 Litre.
+        /// </summary>
+        [Test]
+        public void Given1LitreAnd1000MililitreShouldReturn2Litre()
+        {
+            //Creating Instances For Volumes.
+            Volume litre = new Volume(Unit.Litre, 1);
+            Volume miliLitre = new Volume(Unit.Mililitre,1000);
+
+            double expected = 2;
+            double result = Operations.AddVolumes(litre,miliLitre);
+
+            //Asserting Values.
+            Assert.AreEqual(expected,result);
+        }
     }
 }
