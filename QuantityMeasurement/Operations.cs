@@ -61,8 +61,23 @@ namespace QuantityMeasurement
             return 0;
         }
 
-
+        /// <summary>
+        /// Function For Implementation.
+        /// </summary>
+        /// <param name="object1"></param>
+        /// <param name="object2"></param>
+        /// <returns></returns>
         public double AddWeights(Weight object1, Weight object2)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Function For Implementation.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public double ConvertToCelsius(Temperature objectName)
         {
             return 0;
         }
@@ -189,6 +204,8 @@ namespace QuantityMeasurement
             try
             {
                 double value = objectName.value;
+                
+                //Checking Unit and Converting Into Kilograms.
                 if (objectName.unit.Equals(Unit.Grams))
                 {
                     value = objectName.value / GRAM_TO_KILOGRAM_CONVERSION;
@@ -218,6 +235,30 @@ namespace QuantityMeasurement
                 double value1 = ConvertToKiloGram(object1);
                 double value2 = ConvertToKiloGram(object2);
                 return value1 + value2;
+            }
+            catch (QuantityMeasurementException)
+            {
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+            }
+        }
+
+        /// <summary>
+        /// Function To Convert Temperature Into Celsius.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public static double ConvertToCelsius(Temperature objectName)
+        {
+            try
+            {
+                double value = objectName.value;
+
+                //Checking Unit And Converting Into Celsius.
+                if (objectName.unit.Equals(Unit.Fahrenheit))
+                {
+                    value = (objectName.value - 32) * 5 / 9;
+                }
+                return value;
             }
             catch (QuantityMeasurementException)
             {

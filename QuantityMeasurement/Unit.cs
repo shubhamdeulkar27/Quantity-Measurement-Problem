@@ -11,6 +11,8 @@
         Mililitre,
         KiloGram,
         Grams,
-        Tonne
+        Tonne,
+        Fahrenheit,
+        Celsius
     }
 }

@@ -373,7 +373,7 @@ namespace QuantityMeasurementTest
             Volume miliLitre = new Volume(Unit.Mililitre, 1000);
 
             //Asserting Values.
-            Assert.AreEqual(litre,miliLitre);
+            Assert.AreEqual(litre, miliLitre);
         }
 
         /// <summary>
@@ -384,7 +384,7 @@ namespace QuantityMeasurementTest
         {
             //Creating Volume Instances.
             Volume gallon = new Volume(Unit.Gallon, 1);
-            Volume litre = new Volume(Unit.Litre,3.785);
+            Volume litre = new Volume(Unit.Litre, 3.785);
 
             double expected = 7.57;
             double result = Operations.AddVolumes(gallon, litre);
@@ -401,13 +401,13 @@ namespace QuantityMeasurementTest
         {
             //Creating Instances For Volumes.
             Volume litre = new Volume(Unit.Litre, 1);
-            Volume miliLitre = new Volume(Unit.Mililitre,1000);
+            Volume miliLitre = new Volume(Unit.Mililitre, 1000);
 
             double expected = 2;
-            double result = Operations.AddVolumes(litre,miliLitre);
+            double result = Operations.AddVolumes(litre, miliLitre);
 
             //Asserting Values.
-            Assert.AreEqual(expected,result);
+            Assert.AreEqual(expected, result);
         }
 
         /// <summary>
@@ -418,10 +418,10 @@ namespace QuantityMeasurementTest
         {
             //Creating Instances Of Weights.
             Weight kiloGrams = new Weight(Unit.KiloGram, 1.0);
-            Weight grams = new Weight(Unit.Grams,1000);
+            Weight grams = new Weight(Unit.Grams, 1000);
 
             //Assertin Values.
-            Assert.AreEqual(kiloGrams,grams);
+            Assert.AreEqual(kiloGrams, grams);
         }
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace QuantityMeasurementTest
             Weight kilograms = new Weight(Unit.KiloGram, 1000);
 
             //Asserting Value.
-            Assert.AreEqual(tonne,kilograms);
+            Assert.AreEqual(tonne, kilograms);
         }
 
         /// <summary>
@@ -449,10 +449,24 @@ namespace QuantityMeasurementTest
             Weight grams = new Weight(Unit.Grams, 1000);
 
             double expected = 1001;
-            double result = Operations.AddWeights(tonne,grams);
+            double result = Operations.AddWeights(tonne, grams);
 
             //Asserting Values.
-            Assert.AreEqual(expected,result);
+            Assert.AreEqual(expected, result);
+        }
+
+        /// <summary>
+        /// Test Case 8.34 Given 212 Fahreneit And 100 Celsius Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given212FahrenheitAnd100CelsiusShouldReturnEqual()
+        {
+            //Creating Temperature Instances For Fahrenheit And Celsius.
+            Temperature fahrenheit = new Temperature(Unit.Fahrenheit,212.0);
+            Temperature celsius = new Temperature(Unit.Celsius,100);
+
+            //Asserting Values.
+            Assert.AreEqual(fahrenheit,celsius);
         }
     }
 }

@@ -53,5 +53,12 @@ namespace QuantityMeasurement
         /// <param name="object2"></param>
         /// <returns></returns>
         public abstract double AddWeights(Weight object1, Weight object2);
+
+        /// <summary>
+        /// Abstract Function For Temperature To Convert into Celsius.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public abstract double ConvertToCelsius(Temperature objectName);
     }
 }
