@@ -327,7 +327,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Test Case 4.23 Given 2 Inch And 2 Inch Should Return Equal.
+        /// Test Case 4.23 Given 2 Inch And 2 Inch Should Return 4 Inch.
         /// </summary>
         [Test]
         public void Gievn2InchAnd2InchShouldReturn4Inch()
@@ -340,6 +340,23 @@ namespace QuantityMeasurementTest
 
             //Assertig Values.
             Assert.AreEqual(expected,result);
+        }
+
+        /// <summary>
+        /// Test Case 4.24 Given 1 Feet And 2 Inch Should Return 14 Inches.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd2InchShouldReturn14Inch()
+        {
+            //Creating Feet And Inch Instances.
+            Length feet = new Length(Length.Unit.Feet, 1);
+            Length inch = new Length(Length.Unit.Inch, 2);
+            double result = Operations.AddLengths(feet, inch);
+            double expected = 14;
+
+            //Assertig Values.
+            Assert.AreEqual(expected, result);
+
         }
     }
 }
