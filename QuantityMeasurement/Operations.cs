@@ -52,6 +52,7 @@ namespace QuantityMeasurement
         private static readonly double CENTIMETER_TO_INCH_CONVERSION = 2.54;
         private static readonly double GALLON_TO_LITRE_CONVERSION = 3.785;
         private static readonly double MILILITRE_TO_LITRE_CONVERSION = 1000;
+        private static readonly double GRAM_TO_KILOGRAM_CONVERSION = 1000;
 
         /// <summary>
         /// Function To Covert Given Objects Unit Value Into Inch Unit.
@@ -138,6 +139,28 @@ namespace QuantityMeasurement
                 double value1 = ConvertToLitre(object1);
                 double value2 = ConvertToLitre(object2);
                 return value1 + value2;
+            }
+            catch (QuantityMeasurementException)
+            {
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+            }
+        }
+
+        /// <summary>
+        /// Function to Convert Weights Into Kilograms.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public static double ConvertToKiloGram(Weight objectName)
+        {
+            try
+            {
+                double value = objectName.value;
+                if (objectName.unit.Equals(Unit.Grams))
+                {
+                    value = objectName.value / GRAM_TO_KILOGRAM_CONVERSION;
+                }
+                return value;
             }
             catch (QuantityMeasurementException)
             {

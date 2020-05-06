@@ -8,6 +8,8 @@
         Feet, Inch, Yard, Centimeter,
         Gallon,
         Litre,
-        Mililitre
+        Mililitre,
+        KiloGram,
+        Grams
     }
 }

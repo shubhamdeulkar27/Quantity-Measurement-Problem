@@ -409,5 +409,19 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(expected,result);
         }
+
+        /// <summary>
+        /// Test Case 7.31 Given 1 Kilogram And 1000 Gram Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1KiloGramsAnd1000GramsShouldReturnEqul()
+        {
+            //Creating Instances Of Weights.
+            Weight kiloGrams = new Weight(Unit.KiloGram, 1.0);
+            Weight grams = new Weight(Unit.Grams,1000);
+
+            //Assertin Values.
+            Assert.AreEqual(kiloGrams,grams);
+        }
     }
 }
