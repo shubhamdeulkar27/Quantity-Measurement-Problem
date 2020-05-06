@@ -34,6 +34,7 @@ namespace QuantityMeasurement
         private static readonly double FEET_TO_INCH_CONVERSION = 12;
         private static readonly double YARD_TO_INCH_CONVERSION = 36;
         private static readonly double CENTIMETER_TO_INCH_CONVERSION = 2.54;
+        private static readonly double GALLON_TO_LITRE_CONVERSION = 3.78;
 
         /// <summary>
         /// Function To Covert Given Objects Unit Value Into Inch Unit.
@@ -78,6 +79,21 @@ namespace QuantityMeasurement
             {
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
             }
+        }
+
+        /// <summary>
+        /// Function to Convert Volume Into Litre.
+        /// </summary>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public static double ConvertToLitre(Volume objectName)
+        {
+            double value = objectName.value;
+            if (objectName.unit.Equals(Unit.Gallon))
+            {
+                value = objectName.value * GALLON_TO_LITRE_CONVERSION;
+            }
+            return value;
         }
     }
 }

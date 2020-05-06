@@ -347,5 +347,17 @@ namespace QuantityMeasurementTest
             //Asserting Values.
             Assert.AreEqual(expected, result);
         }
+
+        /// <summary>
+        /// Test Case 5.27 Given 1 Gallon And 3.78 Litre Should Return Equal.
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd3point78LitreShouldReturnEqual()
+        {
+            Volume gallon = new Volume(Unit.Gallon,1.0);
+            Volume litre = new Volume(Unit.Litre,3.78);
+
+            Assert.AreEqual(gallon,litre);
+        }
     }
 }

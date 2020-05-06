@@ -5,6 +5,8 @@
     /// </summary>
     public enum Unit
     {
-        Feet, Inch, Yard, Centimeter
+        Feet, Inch, Yard, Centimeter,
+        Gallon,
+        Litre
     }
 }
