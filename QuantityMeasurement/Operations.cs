@@ -5,88 +5,9 @@ using System.Text;
 namespace QuantityMeasurement
 {
     /// <summary>
-    /// Class For Impelementation.
+    /// Operations Class For Unit Convertion And Addition Operation.
     /// </summary>
-    public class ImplemetorOperations:IOperations
-    {
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public double ConvertToInch(Length objectName)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implemenattion.
-        /// </summary>
-        /// <param name="object1"></param>
-        /// <param name="object2"></param>
-        /// <returns></returns>
-        public double AddLengths(Length object1, Length object2)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public double ConvertToLitre(Volume objectName)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="object1"></param>
-        /// <param name="object2"></param>
-        /// <returns></returns>
-        public double AddVolumes(Volume object1, Volume object2)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public double ConvertToKiloGram(Weight objectName)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="object1"></param>
-        /// <param name="object2"></param>
-        /// <returns></returns>
-        public double AddWeights(Weight object1, Weight object2)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Function For Implementation.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public double ConvertToCelsius(Temperature objectName)
-        {
-            return 0;
-        }
-    }
-
-    /// <summary>
-    /// Class To Convert The Given Unit Into Specified One.
-    /// </summary>
-    public class Operations:ImplemetorOperations
+    public class Operations:IOperations
     {
         //Constants
         private static readonly double FEET_TO_INCH_CONVERSION = 12;
@@ -97,168 +18,120 @@ namespace QuantityMeasurement
         private static readonly double GRAM_TO_KILOGRAM_CONVERSION = 1000;
 
         /// <summary>
-        /// Function To Covert Given Objects Unit Value Into Inch Unit.
+        /// Function To Convert To Base Unit.
         /// </summary>
-        /// <param name="objectName"></param>
+        /// <param name="inputObject"></param>
         /// <returns></returns>
-        public static double ConvertToInch(Length objectName)
+        public double ConvertToBaseUnit(object inputObject)
         {
-            double value=objectName.value;
-            try
+            Type objectType = inputObject.GetType();
+            if (objectType.Equals(typeof(Length)))
             {
-                //If Else Block for checking the specified Unit and converting into Inch.
-                if (objectName.unit.Equals(Unit.Feet))
+                Length length = ((Length)inputObject);
+                double value = length.value;
+                try
                 {
-                    value = objectName.value * FEET_TO_INCH_CONVERSION;
+                    //If Else Block for checking the specified Unit and converting into Inch.
+                    if (length.unit.Equals(Unit.Feet))
+                    {
+                        value = length.value * FEET_TO_INCH_CONVERSION;
+                    }
+                    else if (length.unit.Equals(Unit.Yard))
+                    {
+                        value = length.value * YARD_TO_INCH_CONVERSION;
+                    }
+                    else if (length.unit.Equals(Unit.Centimeter))
+                    {
+                        value = Math.Round(length.value / CENTIMETER_TO_INCH_CONVERSION);
+                    }
                 }
-                else if (objectName.unit.Equals(Unit.Yard))
+                catch (QuantityMeasurementException)
                 {
-                    value = objectName.value * YARD_TO_INCH_CONVERSION;
-                }
-                else if (objectName.unit.Equals(Unit.Centimeter))
-                {
-                    value = Math.Round(objectName.value / CENTIMETER_TO_INCH_CONVERSION);
-                }    
-            }
-            catch (QuantityMeasurementException)
-            {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid");
-            }
-            return value;
-        }
-
-        /// <summary>
-        /// Function For Adding Lenghts And Results into Inch.
-        /// </summary>
-        /// <param name="object1"></param>
-        /// <param name="object2"></param>
-        /// <returns></returns>
-        public static double AddLengths(Length object1, Length object2)
-        {
-            try
-            {
-                double value1 = ConvertToInch(object1);
-                double value2 = ConvertToInch(object2);
-                return value1 + value2;
-            }
-            catch (QuantityMeasurementException)
-            {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
-            }
-        }
-
-        /// <summary>
-        /// Function to Convert Volume Into Litre.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public static double ConvertToLitre(Volume objectName)
-        {
-            double value = objectName.value;
-            try
-            {
-                //Checking Unit Type And Conveting it to Litre.
-                if (objectName.unit.Equals(Unit.Gallon))
-                {
-                    value = objectName.value * GALLON_TO_LITRE_CONVERSION;
-                }
-                if (objectName.unit.Equals(Unit.Mililitre))
-                {
-                    value = objectName.value / MILILITRE_TO_LITRE_CONVERSION;
-                }
-            }
-            catch (QuantityMeasurementException)
-            {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
-            }
-            return value;
-        }
-
-        /// <summary>
-        /// Function to Add Volumes And result into Litre.
-        /// </summary>
-        /// <param name="object1"></param>
-        /// <param name="object2"></param>
-        /// <returns></returns>
-        public static double AddVolumes(Volume object1, Volume object2)
-        {
-            try
-            {
-                double value1 = ConvertToLitre(object1);
-                double value2 = ConvertToLitre(object2);
-                return value1 + value2;
-            }
-            catch (QuantityMeasurementException)
-            {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
-            }
-        }
-
-        /// <summary>
-        /// Function to Convert Weights Into Kilograms.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public static double ConvertToKiloGram(Weight objectName)
-        {
-            try
-            {
-                double value = objectName.value;
-                
-                //Checking Unit and Converting Into Kilograms.
-                if (objectName.unit.Equals(Unit.Grams))
-                {
-                    value = objectName.value / GRAM_TO_KILOGRAM_CONVERSION;
-                }
-                if (objectName.unit.Equals(Unit.Tonne))
-                {
-                    value = objectName.value * GRAM_TO_KILOGRAM_CONVERSION;
+                    throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid");
                 }
                 return value;
             }
-            catch (QuantityMeasurementException)
+            else if (objectType.Equals(typeof(Volume)))
             {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+                Volume volume = (Volume)inputObject;
+                double value = volume.value;
+                try
+                {
+                    //Checking Unit Type And Conveting it to Litre.
+                    if (volume.unit.Equals(Unit.Gallon))
+                    {
+                        value = volume.value * GALLON_TO_LITRE_CONVERSION;
+                    }
+                    if (volume.unit.Equals(Unit.Mililitre))
+                    {
+                        value = volume.value / MILILITRE_TO_LITRE_CONVERSION;
+                    }
+                }
+                catch (QuantityMeasurementException)
+                {
+                    throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+                }
+                return value;
             }
+            else if (objectType.Equals(typeof(Weight)))
+            {
+                Weight weight = (Weight)inputObject;
+                double value = weight.value;
+                try
+                {
+
+                    //Checking Unit and Converting Into Kilograms.
+                    if (weight.unit.Equals(Unit.Grams))
+                    {
+                        value = weight.value / GRAM_TO_KILOGRAM_CONVERSION;
+                    }
+                    if (weight.unit.Equals(Unit.Tonne))
+                    {
+                        value = weight.value * GRAM_TO_KILOGRAM_CONVERSION;
+                    }
+                }
+                catch (QuantityMeasurementException)
+                {
+                    throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+                }
+                return value;
+            }
+            else if (objectType.Equals(typeof(Temperature)))
+            {
+                Temperature temperature = (Temperature)inputObject;
+                double value = temperature.value;
+
+                try
+                {
+                    //Checking Unit And Converting Into Celsius.
+                    if (temperature.unit.Equals(Unit.Fahrenheit))
+                    {
+                        value = (temperature.value - 32) * 5 / 9;
+                    }
+                }
+                catch (QuantityMeasurementException)
+                {
+                    throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
+                }
+                return value;
+            }
+            return 0;
         }
 
         /// <summary>
-        /// Function For Adding Weights And Results into Kilograms.
+        /// Function For Addition Of Two Measurements.
         /// </summary>
         /// <param name="object1"></param>
         /// <param name="object2"></param>
         /// <returns></returns>
-        public static double AddWeights(Weight object1, Weight object2)
+        public double Add(object object1, object object2)
         {
             try
             {
-                double value1 = ConvertToKiloGram(object1);
-                double value2 = ConvertToKiloGram(object2);
+                //Converting Values To Its Base Unit.
+                double value1 = ConvertToBaseUnit(object1);
+                double value2 = ConvertToBaseUnit(object2);
                 return value1 + value2;
-            }
-            catch (QuantityMeasurementException)
-            {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.INVALID_TYPE, "Invalid Type");
-            }
-        }
-
-        /// <summary>
-        /// Function To Convert Temperature Into Celsius.
-        /// </summary>
-        /// <param name="objectName"></param>
-        /// <returns></returns>
-        public static double ConvertToCelsius(Temperature objectName)
-        {
-            try
-            {
-                double value = objectName.value;
-
-                //Checking Unit And Converting Into Celsius.
-                if (objectName.unit.Equals(Unit.Fahrenheit))
-                {
-                    value = (objectName.value - 32) * 5 / 9;
-                }
-                return value;
             }
             catch (QuantityMeasurementException)
             {

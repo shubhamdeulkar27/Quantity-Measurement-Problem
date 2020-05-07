@@ -5,16 +5,16 @@ using System.Text;
 namespace QuantityMeasurement
 {
     /// <summary>
-    /// Interface For Implementing Temperature.
+    /// IVolume Interface For Volume Units Implementation.
     /// </summary>
-    interface ITemperature
+    interface IQuantity
     {
         /// <summary>
-        /// Abstract Function For Equating Object's Values.
+        /// Abstract Function For Equality check.
         /// </summary>
         /// <param name="object1"></param>
         /// <param name="object2"></param>
         /// <returns></returns>
-        public abstract bool IsEqual(Temperature object1, Temperature object2);
+        public abstract bool IsEqual(object object1, object object2);
     }
 }

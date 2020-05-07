@@ -7,12 +7,15 @@ namespace QuantityMeasurement
     /// <summary>
     /// Class For Setting Temperatur Data.
     /// </summary>
-    public class Temperature : ITemperature
+    public class Temperature : IQuantity
     {
         //Variables.
         public Unit unit;
         public double value;
 
+        //Creating Instance Of Operation Class For Function Calling.
+        Operations operation = new Operations();
+ 
         /// <summary>
         /// Parameter Constructor For Setting Data.
         /// </summary>
@@ -30,12 +33,12 @@ namespace QuantityMeasurement
         /// <param name="object1"></param>
         /// <param name="object2"></param>
         /// <returns></returns>
-        public bool IsEqual(Temperature object1, Temperature object2)
+        public bool IsEqual(object object1, object object2)
         {
             try
             {
-                double object1ValueInLitre = Operations.ConvertToCelsius(object1);
-                double object2ValueInLitre = Operations.ConvertToCelsius(object2);
+                double object1ValueInLitre = operation.ConvertToBaseUnit((Temperature)object1);
+                double object2ValueInLitre = operation.ConvertToBaseUnit((Temperature)object2);
                 if (object1ValueInLitre == object2ValueInLitre)
                 {
                     return true;

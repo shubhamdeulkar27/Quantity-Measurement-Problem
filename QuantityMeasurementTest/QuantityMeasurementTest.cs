@@ -9,13 +9,15 @@ namespace QuantityMeasurementTest
     /// </summary>
     public class Tests
     {
+        //Creating Length Instances For Different unit.
         Length zeroFeet = new Length(Unit.Feet, 0.0);
         Length zeroInch = new Length(Unit.Inch, 0.0);
         Length oneFeet = new Length(Unit.Feet, 1);
         Length oneInch = new Length(Unit.Inch, 1);
-        Length zeroYard = new Length(Unit.Yard, 0);
         Length oneYard = new Length(Unit.Yard, 1);
 
+        //Creating Instance Of Operation Class For Function Calling.
+        Operations operation = new Operations();
 
         /// <summary>
         /// Test Case 1.1 Given 0 Feet And 0 Feet Should Return Equal.
@@ -297,7 +299,7 @@ namespace QuantityMeasurementTest
             //Creating Inch Instances.
             Length inch1 = new Length(Unit.Inch, 2);
             Length inch2 = new Length(Unit.Inch, 2);
-            double result = Operations.AddLengths(inch1, inch2);
+            double result = operation.Add(inch1, inch2);
             double expected = 4;
 
             //Assertig Values.
@@ -312,7 +314,7 @@ namespace QuantityMeasurementTest
         {
             //Creating Feet And Inch Instances.
             Length inch = new Length(Unit.Inch, 2);
-            double result = Operations.AddLengths(oneFeet, inch);
+            double result = operation.Add(oneFeet, inch);
             double expected = 14;
 
             //Assertig Values.
@@ -325,7 +327,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Given1FeetAnd1FeetShouldReturn24Inch()
         {
-            double result = Operations.AddLengths(oneFeet, oneFeet);
+            double result = operation.Add(oneFeet, oneFeet);
             double expected = 24;
 
             //Assertig Values.
@@ -341,7 +343,7 @@ namespace QuantityMeasurementTest
             //Creating Length Instances and Performing Operation.
             Length inch = new Length(Unit.Inch, 2);
             Length centimeter = new Length(Unit.Centimeter, 2.5);
-            double result = Operations.AddLengths(inch, centimeter);
+            double result = operation.Add(inch, centimeter);
             double expected = 3;
 
             //Asserting Values.
@@ -387,7 +389,7 @@ namespace QuantityMeasurementTest
             Volume litre = new Volume(Unit.Litre, 3.785);
 
             double expected = 7.57;
-            double result = Operations.AddVolumes(gallon, litre);
+            double result = operation.Add(gallon, litre);
 
             //Asserting Values.
             Assert.AreEqual(expected, result);
@@ -404,7 +406,7 @@ namespace QuantityMeasurementTest
             Volume miliLitre = new Volume(Unit.Mililitre, 1000);
 
             double expected = 2;
-            double result = Operations.AddVolumes(litre, miliLitre);
+            double result = operation.Add(litre, miliLitre);
 
             //Asserting Values.
             Assert.AreEqual(expected, result);
@@ -449,7 +451,7 @@ namespace QuantityMeasurementTest
             Weight grams = new Weight(Unit.Grams, 1000);
 
             double expected = 1001;
-            double result = Operations.AddWeights(tonne, grams);
+            double result = operation.Add(tonne, grams);
 
             //Asserting Values.
             Assert.AreEqual(expected, result);

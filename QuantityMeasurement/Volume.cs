@@ -7,11 +7,14 @@ namespace QuantityMeasurement
     /// <summary>
     /// Class Volume For Setting Volume in Specified Unit.
     /// </summary>
-    public class Volume:IVolume
+    public class Volume:IQuantity
     {
         //Variables.
         public Unit unit;
         public double value;
+
+        //Creating Instance Of Operation Class For Function Calling.
+        Operations operation = new Operations();
 
         /// <summary>
         /// Parameter Constructor for Setting Data.
@@ -30,12 +33,12 @@ namespace QuantityMeasurement
         /// <param name="object1"></param>
         /// <param name="object2"></param>
         /// <returns></returns>
-        public bool IsEqual(Volume object1, Volume object2)
+        public bool IsEqual(object object1, object object2)
         {
             try
             {
-                double object1ValueInLitre = Operations.ConvertToLitre(object1);
-                double object2ValueInLitre = Operations.ConvertToLitre(object2);
+                double object1ValueInLitre = operation.ConvertToBaseUnit((Volume)object1);
+                double object2ValueInLitre = operation.ConvertToBaseUnit((Volume)object2);
                 if (object1ValueInLitre == object2ValueInLitre)
                 {
                     return true;

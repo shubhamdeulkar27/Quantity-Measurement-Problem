@@ -7,11 +7,14 @@ namespace QuantityMeasurement
     /// <summary>
     /// Length Class For Setting Length Value In Specified Unit.
     /// </summary>
-    public class Length : ILength
+    public class Length : IQuantity
     {   
         //Variables.
         public Unit unit;
         public double value;
+
+        //Creating Instance Of Operation Class For Function Calling.
+        Operations operation = new Operations();
 
         /// <summary>
         /// Parameter Constructor To Set Unit And Value.
@@ -31,12 +34,12 @@ namespace QuantityMeasurement
         /// <param name="object1"></param>
         /// <param name="object2"></param>
         /// <returns></returns>
-        public bool IsEqual(Length object1, Length object2)
+        public bool IsEqual(object object1, object object2)
         {
             try
             {
-                double object1ValueInCentimeter = Operations.ConvertToInch(object1);
-                double object2ValueInCentimeter = Operations.ConvertToInch(object2);
+                double object1ValueInCentimeter = operation.ConvertToBaseUnit((Length)object1);
+                double object2ValueInCentimeter = operation.ConvertToBaseUnit((Length)object2);
                 if (object1ValueInCentimeter == object2ValueInCentimeter)
                 {
                     return true;
